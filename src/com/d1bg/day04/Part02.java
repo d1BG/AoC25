@@ -1,40 +1,22 @@
 package com.d1bg.day04;
 
-import static com.d1bg.day04.ArrayHelper.getSafe;
-
 public class Part02 {
-    public static int Part02(char[][] grid) {
-        int paperCollected = 0;
-        int paperCollectedLastRun = 0;
+    char[][] grid;
+    int paperCollected = 0;
+    int paperCollectedLastRun = 0;
+
+    public Part02(char[][] grid, boolean part2) {
+        this.grid = grid;
+    }
+
+    public int part2Solution() {
+        Part01 part2 = new Part01(grid, true);
 
         do {
             paperCollectedLastRun = paperCollected;
-            for (int i = 0; i < grid.length; i++) {
-                for (int j = 0; j < grid[0].length; j++) {
-                    int paperAround = 0;
-                    if (grid[i][j] == '@') {
-                        // top row
-                        if (getSafe(grid, i - 1, j - 1) == '@') paperAround++;
-                        if (getSafe(grid, i - 1, j) == '@') paperAround++;
-                        if (getSafe(grid, i - 1, j + 1) == '@') paperAround++;
-
-                        // mid row
-                        if (getSafe(grid, i, j - 1) == '@') paperAround++;
-                        if (getSafe(grid, i, j + 1) == '@') paperAround++;
-
-                        // bottom row
-                        if (getSafe(grid, i + 1, j - 1) == '@') paperAround++;
-                        if (getSafe(grid, i + 1, j) == '@') paperAround++;
-                        if (getSafe(grid, i + 1, j + 1) == '@') paperAround++;
-
-                        if (paperAround < 4) {
-                            paperCollected++;
-                            grid[i][j] = '.';
-                        }
-                    }
-                }
-            }
+            paperCollected += part2.part1Solution();
         } while (paperCollected > paperCollectedLastRun);
+
         return paperCollected;
     }
 }
