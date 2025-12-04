@@ -4,8 +4,8 @@ public class Part02 extends Part01 {
     int paperCollected = 0;
     int paperCollectedLastRun = 0;
 
-    public Part02(char[][] grid, boolean part2) {
-        super(grid, part2);
+    public Part02(char[][] grid) {
+        super(grid);
     }
 
     public int part2Solution() {

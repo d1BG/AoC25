@@ -4,11 +4,9 @@ import static com.d1bg.day04.ArrayHelper.getSafe;
 
 public class Part01 {
     char[][] grid;
-    boolean part2;
 
-    public Part01(char[][] grid, boolean part2) {
+    public Part01(char[][] grid) {
         this.grid = grid;
-        this.part2 = part2;
     }
 
     public int part1Solution() {
@@ -34,7 +32,7 @@ public class Part01 {
 
                     if (paperAround < 4) {
                         paperCollected++;
-                        if (part2) {
+                        if (this.getClass() == Part02.class) {
                             grid[i][j] = '.';
                         }
                     }

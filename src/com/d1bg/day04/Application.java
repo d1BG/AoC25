@@ -11,8 +11,8 @@ public class Application {
                 .toArray(char[][]::new);
 
 
-        Part01 part01 = new Part01(grid, false);
-        Part02 part02 = new Part02(grid, true);
+        Part01 part01 = new Part01(grid);
+        Part02 part02 = new Part02(grid);
 
         System.out.println("Paper collected Part1: " + part01.part1Solution());
         System.out.println("Paper collected Part2: " + part02.part2Solution());
